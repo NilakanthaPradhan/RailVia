@@ -8,6 +8,7 @@ import org.apache.coyote.BadRequestException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -30,12 +31,12 @@ private static final Logger logger= LoggerFactory.getLogger(MainController.class
     }
 
    @GetMapping("/getTrain")
-   public ResponseBody getTrainSchedule(@RequestBody TrainDetails trainDetails) throws BadRequestException {
+   public ResponseEntity<TrainDetails> getTrainSchedule(@RequestBody TrainDetails trainDetails) throws BadRequestException {
 
        findTrainService.validate(trainDetails.getOrigin(),trainDetails.getDestination());
-       ResponseBody responseBody;
-       responseBody = ResponseBody.Ok(findTrainService.getTrain(trainDetails));
-      return ResponseBody.Ok(findTrainService.getTrain(trainDetails));
+      
+       
+      return ResponseEntity.ok(findTrainService.getTrain(trainDetails));
        
    }
 

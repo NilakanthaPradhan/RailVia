@@ -9,7 +9,7 @@ import java.sql.Time;
 import java.time.LocalDate;
 
 @Data
-@Entity
+@Entity	
 public class TrainDetails {
 
     @Id
@@ -20,4 +20,5 @@ public class TrainDetails {
     private LocalDate journeyDate;
    // private Time arrivalTime;
     private Time bufferTime;
+    private String key;
 }
