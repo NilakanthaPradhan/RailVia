@@ -29,11 +29,14 @@ private static final Logger logger= LoggerFactory.getLogger(MainController.class
         return "working fine";
     }
 
-//    @GetMapping("/getTrain")
-//    public ResponseBody getTrainSchedule(@RequestBody TrainDetails trainDetails) throws BadRequestException {
-//
-//        findTrainService.validate(trainDetails.getOrigin(),trainDetails.getDestination());
-//       // findTrainService.getTrain(trainDetails);
-//    }
+   @GetMapping("/getTrain")
+   public ResponseBody getTrainSchedule(@RequestBody TrainDetails trainDetails) throws BadRequestException {
+
+       findTrainService.validate(trainDetails.getOrigin(),trainDetails.getDestination());
+       ResponseBody responseBody;
+       responseBody = ResponseBody.Ok(findTrainService.getTrain(trainDetails));
+      return ResponseBody.Ok(findTrainService.getTrain(trainDetails));
+       
+   }
 
 }

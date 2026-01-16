@@ -5,8 +5,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import lombok.Data;
 
+import java.sql.Time;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 
 @Data
 @Entity
@@ -16,7 +16,8 @@ public class TrainDetails {
     private String iD;
     private String origin;
     private String destination;
+    private String via;
     private LocalDate journeyDate;
-    private LocalDateTime arrivalTime;
-    private LocalDateTime departureTime;
+   // private Time arrivalTime;
+    private Time bufferTime;
 }
