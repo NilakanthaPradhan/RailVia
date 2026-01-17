@@ -2,6 +2,7 @@ package com.railVia.RailVia.Controller;
 
 
 import com.railVia.RailVia.Model.TrainDetails;
+import com.railVia.RailVia.Model.TrainStops;
 import com.railVia.RailVia.Services.FindTrainService;
 import io.micrometer.common.util.StringUtils;
 import org.apache.coyote.BadRequestException;
@@ -10,9 +11,13 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
 
 import javax.management.BadAttributeValueExpException;
 
@@ -20,6 +25,7 @@ import javax.management.BadAttributeValueExpException;
 public class MainController {
 
 private static final Logger logger= LoggerFactory.getLogger(MainController.class);
+
     @Autowired
     FindTrainService findTrainService;
 
@@ -38,6 +44,10 @@ private static final Logger logger= LoggerFactory.getLogger(MainController.class
        
       return ResponseEntity.ok(findTrainService.getTrain(trainDetails));
        
+   }
+   @GetMapping("/{trainId}/stops")
+   public List<TrainStops> getStops(@PathVariable Long trainId) {
+       return findTrainService.getTrainStops(trainId);
    }
 
 }

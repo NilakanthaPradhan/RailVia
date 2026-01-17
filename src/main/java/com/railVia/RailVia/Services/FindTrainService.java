@@ -8,7 +8,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.railVia.RailVia.JPARepo.TrainDetailsJPARepo;
+import com.railVia.RailVia.JPARepo.TrainStopsJPA;
 import com.railVia.RailVia.Model.TrainDetails;
+import com.railVia.RailVia.Model.TrainStops;
 
 import java.util.List;
 import java.util.logging.Logger;
@@ -19,6 +21,9 @@ public class FindTrainService {
 	
 	@Autowired
 	TrainDetailsJPARepo trainDetailsJPARepo;
+	
+	@Autowired
+	TrainStopsJPA trainStopsJPA;
 	
 
     //this method will validate source and destination
@@ -34,13 +39,18 @@ public class FindTrainService {
 
 
     }
+    
+    
+    public List<TrainStops> getTrainStops(Long trainId) {
+        return trainStopsJPA.findStopsByTrainId(trainId);
+    }
 
     public TrainDetails getTrain(TrainDetails trainDetails){
     	
     	for(TrainDetails eachtrain: isavaible(trainDetails.getOrigin())) {
     		
     		
-    		eachtrain.
+    	//	eachtrain.
     	}
     	
     	
