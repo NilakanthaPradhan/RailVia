@@ -18,7 +18,6 @@ public class TrainDetails {
     private String destination;
     private String via;
     private LocalDate journeyDate;
-   // private Time arrivalTime;
     private Time bufferTime;
     private String key;
 }

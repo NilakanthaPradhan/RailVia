@@ -35,7 +35,6 @@ private static final Logger logger= LoggerFactory.getLogger(MainController.class
         logger.info("testing this method is working fine");
         return "working fine";
     }
-
    @GetMapping("/getTrain")
    public ResponseEntity<TrainDetails> getTrainSchedule(@RequestBody TrainDetails trainDetails) throws BadRequestException {
 
@@ -45,6 +44,8 @@ private static final Logger logger= LoggerFactory.getLogger(MainController.class
       return ResponseEntity.ok(findTrainService.getTrain(trainDetails));
        
    }
+   
+ 
    @GetMapping("/{trainId}/stops")
    public List<TrainStops> getStops(@PathVariable Long trainId) {
        return findTrainService.getTrainStops(trainId);
