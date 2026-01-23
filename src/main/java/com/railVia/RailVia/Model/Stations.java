@@ -1,6 +1,4 @@
-package com.railVia.RailVia.JPARepo;
-
-import com.railVia.RailVia.Model.TrainDetails;
+package com.railVia.RailVia.Model;
 
 import jakarta.persistence.Entity;
 import lombok.Data;
