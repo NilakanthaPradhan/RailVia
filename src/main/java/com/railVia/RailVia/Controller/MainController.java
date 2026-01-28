@@ -33,7 +33,7 @@ private static final Logger logger= LoggerFactory.getLogger(MainController.class
     @Autowired
     FindTrainService findTrainService;
     
-  
+  /*
     @Bean
     public WebMvcConfigurer corsConfigurer() {
         return new WebMvcConfigurer() {
@@ -45,7 +45,7 @@ private static final Logger logger= LoggerFactory.getLogger(MainController.class
             }
         };
     }
-
+*/
 
 
     @GetMapping("/check")
